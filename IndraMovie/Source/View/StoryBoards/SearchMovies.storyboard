@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="cUc-Zm-HOf">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Trending-->
+        <scene sceneID="T9S-qN-XdP">
+            <objects>
+                <tableViewController storyboardIdentifier="homeView" id="cUc-Zm-HOf" customClass="HomeViewController" customModule="TrackTV" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="240" sectionHeaderHeight="28" sectionFooterHeight="28" id="nwe-iR-nbz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                        <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" text="" placeholder="Movies search" id="zFx-qa-Lve">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="0.0" shouldIndentWhileEditing="NO" reuseIdentifier="Cell" rowHeight="240" id="vc0-6S-rR1" customClass="MovieTableViewCell" customModule="TrackTV" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="88.5" width="414" height="240"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vc0-6S-rR1" id="euv-3v-BCn">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="240"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KEO-pT-o00">
+                                            <rect key="frame" x="30" y="20" width="120" height="200"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="200" id="H3j-eh-asF"/>
+                                                <constraint firstAttribute="width" constant="120" id="N96-fF-vzz"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="5"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Qs-ob-ccE">
+                                            <rect key="frame" x="158" y="20" width="211" height="20"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2021" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rzd-ny-MR5">
+                                            <rect key="frame" x="158" y="42" width="211" height="18"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
+                                            <color key="textColor" systemColor="tertiarySystemBackgroundColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overview" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u63-D7-TQF">
+                                            <rect key="frame" x="158" y="64" width="211" height="52"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="52" id="E0w-dy-Ygv"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
+                                            <color key="textColor" systemColor="tertiarySystemBackgroundColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                    <constraints>
+                                        <constraint firstItem="rzd-ny-MR5" firstAttribute="leading" secondItem="KEO-pT-o00" secondAttribute="trailing" constant="8" id="AcT-DO-erq"/>
+                                        <constraint firstItem="u63-D7-TQF" firstAttribute="top" secondItem="rzd-ny-MR5" secondAttribute="bottom" constant="4" id="LbC-aw-49S"/>
+                                        <constraint firstAttribute="trailing" secondItem="rzd-ny-MR5" secondAttribute="trailing" constant="45" id="VFa-6R-QWj"/>
+                                        <constraint firstItem="8Qs-ob-ccE" firstAttribute="leading" secondItem="KEO-pT-o00" secondAttribute="trailing" constant="8" id="b1l-E3-lTW"/>
+                                        <constraint firstItem="KEO-pT-o00" firstAttribute="leading" secondItem="euv-3v-BCn" secondAttribute="leadingMargin" constant="10" id="dYr-gB-vOr"/>
+                                        <constraint firstItem="rzd-ny-MR5" firstAttribute="top" secondItem="8Qs-ob-ccE" secondAttribute="bottom" constant="2" id="f6q-bq-vDU"/>
+                                        <constraint firstAttribute="trailing" secondItem="8Qs-ob-ccE" secondAttribute="trailing" constant="45" id="hgg-wk-7tN"/>
+                                        <constraint firstItem="8Qs-ob-ccE" firstAttribute="top" secondItem="KEO-pT-o00" secondAttribute="top" id="hxl-CA-1G3"/>
+                                        <constraint firstItem="KEO-pT-o00" firstAttribute="centerY" secondItem="euv-3v-BCn" secondAttribute="centerY" id="kGG-JC-jXs"/>
+                                        <constraint firstItem="u63-D7-TQF" firstAttribute="leading" secondItem="KEO-pT-o00" secondAttribute="trailing" constant="8" id="p6G-iO-4kM"/>
+                                        <constraint firstAttribute="trailing" secondItem="u63-D7-TQF" secondAttribute="trailing" constant="45" id="xbX-rS-OaX"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <connections>
+                                    <outlet property="imgPoster" destination="KEO-pT-o00" id="RVr-ZY-vDr"/>
+                                    <outlet property="lblOverView" destination="u63-D7-TQF" id="4Mc-ha-Ryp"/>
+                                    <outlet property="lblTitle" destination="8Qs-ob-ccE" id="zpP-Gt-Rjp"/>
+                                    <outlet property="lblYearRelease" destination="rzd-ny-MR5" id="8mb-DX-v5f"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Trending" largeTitleDisplayMode="always" id="Dx0-YN-Pwz"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <connections>
+                        <outlet property="searchBar" destination="zFx-qa-Lve" id="jV0-Kc-EOW"/>
+                        <outlet property="tableView" destination="nwe-iR-nbz" id="o8o-DW-fJo"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="32k-KY-2be" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1785.5072463768117" y="429.24107142857139"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tertiarySystemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
