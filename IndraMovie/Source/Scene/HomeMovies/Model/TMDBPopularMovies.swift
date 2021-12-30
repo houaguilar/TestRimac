@@ -8,15 +8,14 @@
 
 import Foundation
 
-// MARK: - Welcome
+// MARK: - TMDBPopularMovies
 struct TMDBPopularMovies: Codable {
-    let dates: Dates
     let page: Int
     let results: [PopularMovies]
     let totalPages, totalResults: Int
 
     enum CodingKeys: String, CodingKey {
-        case dates, page, results
+        case page, results
         case totalPages = "total_pages"
         case totalResults = "total_results"
     }

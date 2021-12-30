@@ -43,12 +43,10 @@ public class PopularMoviesAPI {
                     }
                     let wrapperMovies = tmdbPopularMovies.results.map{$0.convertToWrapper()}
                     observer.onNext(.success(wrapperMovies))
+                    let currentPage = self.paginationTrending.page
+                    self.paginationTrending = Pagination.init(page: self.paginationTrending.page + currentPage, limit: 20)
                     observer.onCompleted()
                 })
-            //observer.onNext(elements)
-            //observer.onCompleted()
-            //observer.onError(error)
-          
             return Disposables.create()
         }
         return observable.retryOnBecomesReachable(.failure(.offline), reachabilityService: _reachabilityService)
