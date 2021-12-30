@@ -25,7 +25,7 @@ class LoginViewController: UIViewController,
         usernameField.becomeFirstResponder()
 
         usernameField.clearButtonMode = .always
-        usernameField.placeholder = "Ingresa Email"
+        usernameField.placeholder = "Nombre de Usuario"
         usernameField.delegate = self
         usernameField.returnKeyType = .next
         usernameField.keyboardType = .emailAddress
@@ -33,7 +33,7 @@ class LoginViewController: UIViewController,
         
         passwordField.isSecureTextEntry = true
         passwordField.placeholder = "Contraseña"
-        passwordField.keyboardType = .numberPad
+        passwordField.keyboardType = .default
         passwordField.tag = 1
         
         passwordField.addTarget(self, action: #selector(changeText(textfield:)), for: .editingChanged)
@@ -46,12 +46,10 @@ class LoginViewController: UIViewController,
         self.view.addGestureRecognizer(shortPressGesture)
     }
     @objc func loginProcess(_ sender: UIButton){
-        print("ya me tengo que ir a cenar")
         self.viewModel.goToHome()
     }
     @objc func changeText(textfield: UITextField) {
-        if textfield.tag  == 1 && textfield.text?.count == 3 {
-            passwordField.resignFirstResponder()
+        if textfield.tag  == 1 && textfield.text!.isValidPassword {
             button.isEnabled = true
         }
     }
@@ -65,7 +63,7 @@ class LoginViewController: UIViewController,
 }
 extension LoginViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if !textField.text!.isEmpty && textField.text!.isValidEmail {
+        if !textField.text!.isEmpty && textField.text!.isValidUsername {
             usernameField.resignFirstResponder()
             passwordField.becomeFirstResponder()
         }
@@ -73,8 +71,14 @@ extension LoginViewController: UITextFieldDelegate {
     }
 }
 extension String {
-    var isValidEmail: Bool {
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+    var isValidUsername: Bool {
+        let emailRegEx = "^[a-zA-Z\\_]{4,18}$"
+        
+        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailPred.evaluate(with: self)
+    }
+    var isValidPassword: Bool {
+        let emailRegEx = "^(?=.*[a-z])(?=.*[$@$#!%*?&])[A-Za-z\\d$@$#!%*?&]{8,}"
         
         let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailPred.evaluate(with: self)
