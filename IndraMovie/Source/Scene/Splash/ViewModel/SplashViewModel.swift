@@ -1,5 +1,5 @@
 //
-//  HomeViewModel.swift
+//  SplashViewModel.swift
 //  IndraMovie
 //
 //  Created by Jordy Aguilar on 22/12/21.
@@ -8,12 +8,16 @@
 
 import RxSwift
 import TraktKit
-struct HomeViewModel {
+
+struct SplashViewModel {
     let sceneCoordinator: CoordinatorView
     init(coordinator:CoordinatorView) {
         self.sceneCoordinator = coordinator
     }
-    func getMovies(_ query:String)->Observable<SearchMoviesResponse>{
-        return TrackMoviesAPI.sharedAPI.searchMovies(query: query)
+  
+    func goToLogIn(){
+        let logInViewModel = LoginViewModel(coordinator: sceneCoordinator)
+        let loginScene = Scene.login(logInViewModel)
+        sceneCoordinator.transition(to: loginScene, type: .push)
     }
 }

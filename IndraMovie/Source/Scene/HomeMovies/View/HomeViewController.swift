@@ -12,71 +12,59 @@ import RxCocoa
 import RxGesture
 import TraktKit
 import RxDataSources
-class WrapperMovie: NSObject {
-    var title:String!
-    var imdb:String!
-    var year:String!
-    var overView:String!
-    var url:URL? = nil
-   
-}
+
 class HomeViewController: ViewController,BindableType, UITableViewDelegate {
+    //MARK: Properties
     var viewModel: HomeViewModel!
     static let itemId = "Cell"
-    func bindViewModel() {
-
-    }
-    typealias ViewModelType = HomeViewModel
-    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    typealias ViewModelType = HomeViewModel
+    
+    func bindViewModel() {
+        
+    }
     let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, WrapperMovie>>(
         configureCell: { (_, tv, ip, movie: WrapperMovie) in
             let cell = tv.dequeueReusableCell(withIdentifier: HomeViewController.itemId) as! MovieTableViewCell
             cell.separatorInset = .zero
-
             cell.loadWithData(movie)
-
             return cell
-    },
+        },
         titleForHeaderInSection: { dataSource, sectionIndex in
             let section = dataSource[sectionIndex]
             return section.items.count > 0 ? "Movies (\(section.items.count))" : "No Movies found retry"
-    }
+        }
     )
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupListMovies()
+        setupSearchBar()
+    }
+    func setupListMovies() {
         let tableView: UITableView = self.tableView
         tableView.separatorColor = .clear
         tableView.allowsSelection = false
-        
         let loadNextPageTrigger: (Driver<SearchMoviesState>) -> Signal<()> =  { state in
             tableView.rx.contentOffset.asDriver()
                 .withLatestFrom(state)
                 .flatMap { state in
                     return tableView.isNearBottomEdge(edgeOffset: 20.0) && !state.shouldLoadNextPage
-                        ? Signal.just(())
-                        : Signal.empty()
-            }
+                    ? Signal.just(())
+                    : Signal.empty()
+                }
         }
-
-        
         let activityIndicator = ActivityIndicator()
-        
         let searchBar: UISearchBar = self.searchBar
-      
-       
         // We want the search bar visible all the time.
-
         let state = searchMovies(
             searchText: searchBar.rx.text.orEmpty.changed.asSignal().throttle(.milliseconds(300)),
             loadNextPageTrigger: loadNextPageTrigger,
             performSearch: { query in
                 self.viewModel.getMovies(query)
                     .trackActivity(activityIndicator)
-        })
-
+            })
+        
 
         state
             .map { $0.movies }
@@ -84,13 +72,13 @@ class HomeViewController: ViewController,BindableType, UITableViewDelegate {
             .map { [SectionModel(model: "Movies", items: $0.value)] }
             .drive(tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
-
+        
         state
             .map { $0.isLimitExceeded }
             .distinctUntilChanged()
             .filter { $0 }
             .drive(onNext: { n in
-
+                
             })
             .disposed(by: disposeBag)
         
@@ -112,7 +100,8 @@ class HomeViewController: ViewController,BindableType, UITableViewDelegate {
             .drive(UIApplication.shared.rx.isNetworkActivityIndicatorVisible)
             .disposed(by: disposeBag)
         // }
-        
+    }
+    func setupSearchBar(){
         let searchController = UISearchController(searchResultsController: nil)
         if #available(iOS 11.0, *) {
             navigationController?.navigationBar.prefersLargeTitles = true
@@ -122,9 +111,7 @@ class HomeViewController: ViewController,BindableType, UITableViewDelegate {
             // Fallback on earlier versions
             tableView.tableHeaderView = searchController.searchBar
         }
-      
     }
-    
     // MARK: Table view delegate
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -142,7 +129,7 @@ class HomeViewController: ViewController,BindableType, UITableViewDelegate {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-
+    
 }
 extension UIScrollView {
     func  isNearBottomEdge(edgeOffset: CGFloat = 20.0) -> Bool {

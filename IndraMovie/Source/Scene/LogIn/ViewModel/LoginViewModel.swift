@@ -1,15 +1,14 @@
 //
-//  SplashViewModel.swift
+//  LoginViewModel.swift
 //  IndraMovie
 //
-//  Created by Jordy Aguilar on 22/12/21.
+//  Created by Jordy Aguilar on 29/12/21.
 //  Copyright © 2021 Jordy Aguilar. All rights reserved.
 //
 
-import RxSwift
-import TraktKit
+import Foundation
 
-struct SplashViewModel {
+struct LoginViewModel {
     let sceneCoordinator: CoordinatorView
     init(coordinator:CoordinatorView) {
         self.sceneCoordinator = coordinator

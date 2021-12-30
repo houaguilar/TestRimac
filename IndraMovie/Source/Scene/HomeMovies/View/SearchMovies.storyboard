@@ -11,11 +11,11 @@
         <!--Trending-->
         <scene sceneID="T9S-qN-XdP">
             <objects>
-                <tableViewController storyboardIdentifier="homeView" id="cUc-Zm-HOf" customClass="HomeViewController" customModule="TrackTV" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="homeView" id="cUc-Zm-HOf" customClass="HomeViewController" customModule="IndraMovie" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="240" sectionHeaderHeight="28" sectionFooterHeight="28" id="nwe-iR-nbz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                        <color key="backgroundColor" red="0.050980392159999999" green="0.1450980392" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" text="" placeholder="Movies search" id="zFx-qa-Lve">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -23,7 +23,7 @@
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="0.0" shouldIndentWhileEditing="NO" reuseIdentifier="Cell" rowHeight="240" id="vc0-6S-rR1" customClass="MovieTableViewCell" customModule="TrackTV" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="0.0" shouldIndentWhileEditing="NO" reuseIdentifier="Cell" rowHeight="240" id="vc0-6S-rR1" customClass="MovieTableViewCell" customModule="IndraMovie" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="88.5" width="414" height="240"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vc0-6S-rR1" id="euv-3v-BCn">
@@ -65,7 +65,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                    <color key="backgroundColor" red="0.050980392156862744" green="0.14509803921568626" blue="0.24705882352941178" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstItem="rzd-ny-MR5" firstAttribute="leading" secondItem="KEO-pT-o00" secondAttribute="trailing" constant="8" id="AcT-DO-erq"/>
                                         <constraint firstItem="u63-D7-TQF" firstAttribute="top" secondItem="rzd-ny-MR5" secondAttribute="bottom" constant="4" id="LbC-aw-49S"/>
@@ -103,9 +103,6 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemIndigoColor">
-            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="tertiarySystemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

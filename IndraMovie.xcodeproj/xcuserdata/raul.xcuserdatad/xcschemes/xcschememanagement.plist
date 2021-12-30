@@ -7,7 +7,12 @@
 		<key>IndraMovie.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>12</integer>
+			<integer>0</integer>
+		</dict>
+		<key>IndraMovieDev.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>14</integer>
 		</dict>
 		<key>TrackTV.xcscheme_^#shared#^_</key>
 		<dict>
