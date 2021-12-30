@@ -10,7 +10,6 @@ import UIKit
 import RxSwift
 import RxCocoa
 import RxGesture
-import TraktKit
 import RxDataSources
 
 class HomeViewController: ViewController,BindableType, UITableViewDelegate {

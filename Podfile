@@ -10,12 +10,13 @@ target 'IndraMovie' do
   pod 'RxCocoa', '5.0.0'
   pod 'RxGesture'
   pod 'RxDataSources', '4.0.1'
-  pod 'TraktKit', '1.0.8'
   pod 'SDWebImage', '5.0.6'
   pod 'Alamofire'
   target 'IndraMovieTests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'Quick'
+    pod 'Nimble'
   end
 
   target 'IndraMovieUITests' do

@@ -7,7 +7,7 @@
 //
 
 import RxSwift
-import TraktKit
+
 protocol HomeViewModelDelegate: AnyObject {
     func goToBack()
 }

@@ -9,7 +9,6 @@
 import UIKit
 import RxSwift
 import Alamofire
-import TraktKit
 
 class PaginatorMoviesAPI: NSObject {
     fileprivate let _reachabilityService: ReachabilityService

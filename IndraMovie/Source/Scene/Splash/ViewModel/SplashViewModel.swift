@@ -7,7 +7,6 @@
 //
 
 import RxSwift
-import TraktKit
 
 struct SplashViewModel {
     let sceneCoordinator: CoordinatorView
