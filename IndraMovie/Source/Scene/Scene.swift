@@ -14,7 +14,6 @@ extension Scene {
     static let searchStorybardName = "SearchMovies"
     static let splashView = "splashView"
     static let homeView = "homeView"
-    static let loginView = "loginView"
     func viewController() -> UIViewController {
         switch self {
         case .splash(let viewModel):
@@ -28,8 +27,11 @@ extension Scene {
             view.bindViewModel(to: viewModel)
             return view
         case .login(let viewModel):
-
             var view:LoginViewController = LoginViewController(nibName: "LoginViewController", bundle: Bundle.main)
+            view.bindViewModel(to: viewModel)
+            return view
+        case .detail(let viewModel):
+            var view:DetailViewController = DetailViewController(nibName: "DetailViewController", bundle: Bundle.main)
             view.bindViewModel(to: viewModel)
             return view
         }
@@ -40,6 +42,7 @@ enum Scene {
     case splash(SplashViewModel)
     case home(HomeViewModel)
     case login(LoginViewModel)
+    case detail(DetailMovieViewModel)
 }
 
 class SceneReactive: CoordinatorView {

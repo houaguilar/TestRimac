@@ -44,7 +44,7 @@ class HomeViewController: ViewController,BindableType, UITableViewDelegate {
     func setupListMovies() {
         let tableView: UITableView = self.tableView
         tableView.separatorColor = .clear
-        tableView.allowsSelection = false
+        tableView.allowsSelection = true
         let loadNextPageTrigger: (Driver<SearchMoviesState>) -> Signal<()> =  { state in
             tableView.rx.contentOffset.asDriver()
                 .withLatestFrom(state)
@@ -88,6 +88,15 @@ class HomeViewController: ViewController,BindableType, UITableViewDelegate {
                     _ = searchBar.resignFirstResponder()
                 }
             }
+            .disposed(by: disposeBag)
+        
+        tableView.rx.itemSelected
+            .subscribe(onNext:  { [weak self] indexPath in
+                guard let self = self else { return }
+                let section = self.dataSource[indexPath.section]
+                let wrapperMovie = section.items[indexPath.row]
+                self.viewModel.goToDetail(wrapperMovie.tmdb)
+             })
             .disposed(by: disposeBag)
         
         // so normal delegate customization can also be used

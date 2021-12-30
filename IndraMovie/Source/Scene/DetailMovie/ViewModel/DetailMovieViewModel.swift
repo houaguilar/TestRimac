@@ -7,11 +7,16 @@
 //
 
 import Foundation
-
+import RxSwift
 struct DetailMovieViewModel {
     let sceneCoordinator: CoordinatorView
-    init(coordinator:CoordinatorView) {
+    let tmdbID: String
+    init(coordinator: CoordinatorView, _ tmdbID: String) {
         self.sceneCoordinator = coordinator
+        self.tmdbID = tmdbID
+    }
+    func getDetail() -> Observable<DetailMoviesResponse>{
+        return DetailMovieApi.shared.getDetailMovie(self.tmdbID)
     }
     func goToBack(){
         sceneCoordinator.pop(animated: true)

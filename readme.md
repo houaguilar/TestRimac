@@ -8,12 +8,12 @@ Tech Review for Indra
 
 ## Getting Started
  ```
- user: jordyaguilar
- pass: github2022
+ user: admin
+ pass: Password*123.
 ```
 ### Dependencies
 
-pod 'RxSwift', '5.0.0' 
+  pod 'RxSwift', '5.0.0' 
   pod 'RxCocoa', '5.0.0'
   pod 'RxGesture'
   pod 'RxDataSources', '4.0.1'

@@ -27,4 +27,10 @@ struct HomeViewModel {
     private func getMoviesFrom(_ query:String)->Observable<SearchMoviesResponse>{
         return PaginatorMoviesAPI(reachabilityService: try! DefaultReachabilityService()).searchMovies(query)
     }
+    func goToDetail(_ tmdbID: String){
+        let detailMovieViewModel = DetailMovieViewModel(coordinator: sceneCoordinator,
+                                                        tmdbID)
+        let detailMovieScene = Scene.detail(detailMovieViewModel)
+        sceneCoordinator.transition(to: detailMovieScene, type: .push)
+    }
 }
