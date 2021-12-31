@@ -27,10 +27,8 @@ class DetailViewController: UIViewController, BindableType {
             .subscribe(onNext: { event in
                 switch event {
                 case .success(let detailMovie):
-                    print(detailMovie.title)
                     self.backDropPoster.sd_setImage(with: detailMovie.backPosterUrl)
                     self.imgPoster.sd_setImage(with: detailMovie.posterUrl)
-                    
                     self.originalTitle.text = detailMovie.title
                     self.originalTitle.lineBreakMode = .byWordWrapping
                     self.originalTitle.numberOfLines = 3

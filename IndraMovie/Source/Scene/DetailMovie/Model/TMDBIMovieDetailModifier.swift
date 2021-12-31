@@ -14,14 +14,18 @@ extension TMDBIMovieDetail {
         wrapperDetailMovie.title = self.originalTitle
         wrapperDetailMovie.releaseDate = self.releaseDate
         wrapperDetailMovie.overView = self.overview
-        guard let pathUrl = URL(string: "https://image.tmdb.org/t/p/w500\(self.backdropPath)") else {
-            return wrapperDetailMovie
-        }
-        wrapperDetailMovie.backPosterUrl = pathUrl
+       
         guard let pathPosterUrl = URL(string: "https://image.tmdb.org/t/p/w500\(self.posterPath)") else {
             return wrapperDetailMovie
         }
         wrapperDetailMovie.posterUrl = pathPosterUrl
+        guard let backPath = self.backdropPath else {
+            return wrapperDetailMovie
+        }
+        guard let pathUrl = URL(string: "https://image.tmdb.org/t/p/w500\(backPath)") else {
+            return wrapperDetailMovie
+        }
+        wrapperDetailMovie.backPosterUrl = pathUrl
         return wrapperDetailMovie
     }
 }
