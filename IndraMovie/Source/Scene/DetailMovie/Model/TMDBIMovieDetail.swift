@@ -11,7 +11,7 @@ import Foundation
 // MARK: - OMDBIMovie
 struct TMDBIMovieDetail: Codable {
 
-    let backdropPath: String
+    let backdropPath: String?
     let genres: [Genre]
     let id: Int
     let imdbID, originalLanguage, originalTitle, overview: String

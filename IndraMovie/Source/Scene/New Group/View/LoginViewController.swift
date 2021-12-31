@@ -12,27 +12,26 @@ class LoginViewController: UIViewController,
                             BindableType,
                             UIGestureRecognizerDelegate {
     var viewModel: LoginViewModel!
-
+    
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var button: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         button.isEnabled = false
         button.addTarget(self, action: #selector(loginProcess(_:)), for: .touchUpInside)
         usernameField.becomeFirstResponder()
 
         usernameField.clearButtonMode = .always
-        usernameField.placeholder = "Nombre de Usuario"
+        usernameField.placeholder = L10n.usernameField//NSLocalizedString("usernameField", comment: "")
         usernameField.delegate = self
         usernameField.returnKeyType = .next
         usernameField.keyboardType = .emailAddress
         usernameField.tag = 0
         
         passwordField.isSecureTextEntry = true
-        passwordField.placeholder = "Contraseña"
+        passwordField.placeholder = L10n.passwordField//NSLocalizedString("passwordField", comment: "")
         passwordField.keyboardType = .default
         passwordField.tag = 1
         

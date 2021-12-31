@@ -1,0 +1,9 @@
+/* 
+  Localizable.strings
+  IndraMovie
+
+  Created by Jordy Aguilar on 30/12/21.
+  Copyright © 2021 Jordy Aguilar. All rights reserved.
+*/
+"usernameField" = "Username";
+"passwordField" = "Password";

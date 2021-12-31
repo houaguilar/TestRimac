@@ -17,6 +17,7 @@ target 'IndraMovie' do
     # Pods for testing
     pod 'Quick'
     pod 'Nimble'
+    pod 'RxSwift', '5.0.0' 
   end
 
   target 'IndraMovieUITests' do

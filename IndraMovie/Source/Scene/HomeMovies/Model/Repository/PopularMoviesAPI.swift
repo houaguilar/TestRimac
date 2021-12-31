@@ -10,7 +10,10 @@ import RxCocoa
 import RxSwift
 import Alamofire
 typealias SearchMoviesResponse = Result<([WrapperMovie]), MoviesServiceError>
-public class PopularMoviesAPI {
+protocol PopularMoviesAPIProtocol {
+    func getTwentyPopularMovies() -> Observable<SearchMoviesResponse>
+}
+public class PopularMoviesAPI: PopularMoviesAPIProtocol {
 
     static var shared: PopularMoviesAPI = PopularMoviesAPI(reachabilityService: try! DefaultReachabilityService())
     fileprivate let _reachabilityService: ReachabilityService

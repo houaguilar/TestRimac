@@ -10,6 +10,9 @@ import RxCocoa
 import RxSwift
 import Alamofire
 typealias DetailMoviesResponse = Result<(WrapperDetailMovie), MoviesServiceError>
+protocol DetailMovieApiProtocol {
+    func getDetailMovie(_ tmdbID:String) -> Observable<DetailMoviesResponse>
+}
 public class DetailMovieApi {
 
     static var shared: DetailMovieApi = DetailMovieApi(reachabilityService: try! DefaultReachabilityService())
@@ -38,7 +41,6 @@ public class DetailMovieApi {
                     guard let tmdbIMovieDetail = dataResponse.value else {
                         return
                     }
-//                    tmdbIMovieDetail.title
                     observer.onNext(.success(tmdbIMovieDetail.converToWrapperDetailMovie()))
                     observer.onCompleted()
                 })

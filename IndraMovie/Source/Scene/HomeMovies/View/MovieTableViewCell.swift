@@ -27,6 +27,7 @@ class MovieTableViewCell: UITableViewCell {
         self.lblTitle.text = movie.title
         self.lblYearRelease.text = movie.year
         self.lblOverView.text = movie.overView
-        self.imgPoster.sd_setImage(with: movie.url, placeholderImage:UIImage.init(imageLiteralResourceName: "hintMovie.pdf"))
+        self.imgPoster.sd_setImage(with: movie.url,
+                                   placeholderImage:Asset.Movies.hintMovie.image)
     }
 }

@@ -2,8 +2,8 @@
 //  MoviesServiceError.swift
 //  IndraMovie
 //
-//  Created by Raul on 30/12/21.
-//  Copyright © 2021 Raul Quispe. All rights reserved.
+//  Created by Jordy Aguilar on 30/12/21.
+//  Copyright © 2021 Jordy Aguilar. All rights reserved.
 //
 
 import Foundation
