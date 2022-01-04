@@ -20,6 +20,7 @@ class LoginViewController: UIViewController,
     override func viewDidLoad() {
         super.viewDidLoad()
         setupGesture()
+        setupUI()
     }
     // MARK: Setup UI
     func setupUI(){
@@ -33,7 +34,7 @@ class LoginViewController: UIViewController,
     }
     func setupPasswordField(){
         passwordField.isSecureTextEntry = true
-        passwordField.placeholder = L10n.passwordField//NSLocalizedString("passwordField", comment: "")
+        passwordField.placeholder = L10n.passwordField
         passwordField.keyboardType = .default
         passwordField.tag = 1
         passwordField.addTarget(self, action: #selector(changeText(textfield:)), for: .editingChanged)
@@ -42,7 +43,7 @@ class LoginViewController: UIViewController,
         usernameField.becomeFirstResponder()
 
         usernameField.clearButtonMode = .always
-        usernameField.placeholder = L10n.usernameField//NSLocalizedString("usernameField", comment: "")
+        usernameField.placeholder = L10n.usernameField
         usernameField.delegate = self
         usernameField.returnKeyType = .next
         usernameField.keyboardType = .emailAddress
